@@ -1373,6 +1373,47 @@ h1, h2, h3, h4 {
 /* ==========================================================================
    Responsive Design Media Queries
    ========================================================================== */
+@media (max-width: 1250px) {
+    /* Navigation toggle */
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav {
+        position: fixed;
+        top: 0px;
+        right: 0;
+        width: 200px;
+        height: 100vh;
+        background-color: var(--bg-primary);
+        z-index: 999;
+        transform: translateX(100%);
+        transition: transform var(--transition-normal);
+        border-top: 1px solid var(--border-color);
+        border-right: 1px solid var(--border-color);
+    }
+    
+    .nav.active {
+        transform: translateX(0);
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 100px;
+        padding-left: 30px;
+        gap: 24px;
+    }
+    
+    .nav-link {
+        font-size: 1.1rem;
+    }
+    
+    .header-cta {
+        display: none; /* Hide top cta when collapsed */
+    }
+}
+
 @media (max-width: 1024px) {
     html {
         font-size: 15px;
@@ -1430,43 +1471,6 @@ h1, h2, h3, h4 {
     
     .hero-title {
         font-size: 2.5rem;
-    }
-    
-    /* Navigation toggle */
-    .menu-toggle {
-        display: flex;
-    }
-    
-    .nav {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        height: calc(100vh - 80px);
-        background-color: var(--bg-primary);
-        z-index: 999;
-        transform: translateX(-100%);
-        transition: transform var(--transition-normal);
-        border-top: 1px solid var(--border-color);
-    }
-    
-    .nav.active {
-        transform: translateX(0);
-    }
-    
-    .nav-list {
-        flex-direction: column;
-        align-items: center;
-        padding-top: 50px;
-        gap: 30px;
-    }
-    
-    .nav-link {
-        font-size: 1.2rem;
-    }
-    
-    .header-cta {
-        display: none; /* Hide top cta on mobile */
     }
     
     /* Before/After slider on mobile */
