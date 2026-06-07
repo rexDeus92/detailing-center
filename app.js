@@ -59,21 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
        3. Before/After Comparison Slider
        ========================================================================== */
     const slider = document.getElementById('image-slider');
-    const afterContainer = document.getElementById('after-img-container');
-    const afterImg = document.getElementById('img-after');
     const handle = document.getElementById('slider-handle');
 
-    if (slider && afterContainer && afterImg && handle) {
+    if (slider && handle) {
         let isDragging = false;
-
-        // Synchronize after image size to match slider container width
-        const syncSliderWidth = () => {
-            const width = slider.offsetWidth;
-            afterImg.style.width = width + 'px';
-        };
-
-        window.addEventListener('resize', syncSliderWidth);
-        syncSliderWidth(); // Initial sync
 
         // Slider position updater
         const moveSlider = (clientX) => {
@@ -84,9 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
             // Clamping value between 0 and 100
             percentage = Math.max(0, Math.min(100, percentage));
             
-            // Apply widths and positions
-            afterContainer.style.width = `${percentage}%`;
-            handle.style.left = `${percentage}%`;
+            // Apply custom CSS property
+            slider.style.setProperty('--slider-pos', `${percentage}%`);
         };
 
         // Mouse events
